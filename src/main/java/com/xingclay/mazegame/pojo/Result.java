@@ -33,5 +33,9 @@ public class Result<T> {
     public static Result error(int code, String message) {
         return new Result(code, message, null);
     }
+
+    public static Result<String> success(int code, String message, String data) {
+        return new Result(code, message, data);
+    }
 }
 

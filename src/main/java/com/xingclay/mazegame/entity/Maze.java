@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -14,7 +15,7 @@ public class Maze {
     private Integer mazeId;
     private Integer mazeType;
     private String mazeStructure;
-    private Date createDate;
+    private LocalDateTime createDate;
     private Integer status;
 }
 

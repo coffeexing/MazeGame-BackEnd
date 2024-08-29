@@ -15,16 +15,21 @@ public class GameRecordServieImpl implements GameRecordService {
 
     @Override
     public Result upload(GameRecord record) {
-        int row = gameRecordMapper.insert(record);
-        if (row == 0) {
-            return Result.error(501, "上传游戏记录失败");
+        if (record == null) {
+            return Result.error(400, "无效的游戏记录");
         }
 
-        return Result.success("上传成功", null);
+        int insertResult = gameRecordMapper.insert(record);
+        if (insertResult > 0) {
+            return Result.success("游戏记录上传成功");
+        } else {
+            return Result.error(500, "游戏记录上传失败");
+        }
     }
+
 
     @Override
     public Result update(Integer id, GameRecord record) {
-        return null;
+        return Result.success("更新成功");
     }
 }

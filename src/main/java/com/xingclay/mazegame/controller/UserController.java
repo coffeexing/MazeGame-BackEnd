@@ -17,7 +17,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/login")
-    public Result<String> login(@ModelAttribute LoginUser user) {
+    public Result<Integer> login(@ModelAttribute LoginUser user) {
         return userService.login(user);
     }
 

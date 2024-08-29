@@ -19,4 +19,9 @@ public class MazeController {
     private Result update(@PathVariable("id") Integer id, @ModelAttribute Maze maze) {
         return mazeService.update(id, maze);
     }
+
+    @PostMapping("/maze/{id}")
+    private Result<String> getMap(@PathVariable("id") Integer id) {
+        return mazeService.getMap(id);
+    }
 }

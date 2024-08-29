@@ -5,7 +5,7 @@ import com.xingclay.mazegame.entity.User;
 import com.xingclay.mazegame.pojo.Result;
 
 public interface UserService {
-    Result<String> login(LoginUser user);
+    Result<Integer> login(LoginUser user);
 
     Result<String> register(LoginUser user);
 

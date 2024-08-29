@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
     private RoleUserMapper roleUserMapper;
 
     @Override
-    public Result<String> login(LoginUser user) {
+    public Result<Integer> login(LoginUser user) {
         String username = user.getUsername();
         String password = user.getPassword();
         int role = user.getRole();
@@ -50,9 +50,9 @@ public class UserServiceImpl implements UserService {
             return Result.error(403, "授权失败");
         }
 
-        String token = "123";
+        Integer id = queryUser.getUserId();
 
-        return Result.success("登录成功", token);
+        return Result.success("登录成功", id);
     }
 
     @Override

@@ -5,4 +5,6 @@ import com.xingclay.mazegame.pojo.Result;
 
 public interface MazeService {
     Result update(Integer id, Maze maze);
+
+    Result<String> getMap(Integer id);
 }
