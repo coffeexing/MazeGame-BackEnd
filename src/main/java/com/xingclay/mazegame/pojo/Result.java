@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Result<T> {
     private Integer code;
-    private String massage;
+    private String message;
     private T data;
 
     public static Result success() {
