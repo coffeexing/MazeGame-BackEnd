@@ -34,6 +34,10 @@ public class UserServiceImpl implements UserService {
         queryWrapper1.eq(User::getUsername, username);
         User queryUser = userMapper.selectOne(queryWrapper1);
 
+        if (queryUser == null) {
+            return Result.error(401, "登录失败");
+        }
+
         if (!BCrypt.checkpw(password, queryUser.getPassword())) {
             return Result.error(401, "登录失败");
         }
