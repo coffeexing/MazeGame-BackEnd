@@ -1,0 +1,16 @@
+#数据库配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://119.45.239.3:3306/mazegame
+    username: admin
+    password: admin
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+
+#spring事务管理日志
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
+    org.mybatis : DEBUG
