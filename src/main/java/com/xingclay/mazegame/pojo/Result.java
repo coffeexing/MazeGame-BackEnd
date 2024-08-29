@@ -30,8 +30,8 @@ public class Result<T> {
     }
 
     //失败响应
-    public static Result error(int code, String massage) {
-        return new Result(code, massage, null);
+    public static Result error(int code, String message) {
+        return new Result(code, message, null);
     }
 }
 
