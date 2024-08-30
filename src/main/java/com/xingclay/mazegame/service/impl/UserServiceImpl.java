@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
         }
 
         if (!BCrypt.checkpw(password, queryUser.getPassword())) {
-            return Result.error(401, "登录失败");
+            return new Result<>(401, "登录失败", 0);
         }
 
         LambdaQueryWrapper<RoleUser> queryWrapper2 = new LambdaQueryWrapper<>();
@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
         RoleUser queryRole = roleUserMapper.selectOne(queryWrapper2);
 
         if (role != queryRole.getRoleId()) {
-            return Result.error(403, "授权失败");
+            return new Result<>(403, "授权失败", 0);
         }
 
         Integer id = queryUser.getUserId();
