@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService {
 
         if (queryUser == null) {
             register(user);
+            return Result.error(201, "注册成功");
         }
 
         if (!BCrypt.checkpw(password, queryUser.getPassword())) {
