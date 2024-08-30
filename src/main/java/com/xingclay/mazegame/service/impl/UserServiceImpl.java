@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
         User queryUser = userMapper.selectOne(queryWrapper1);
 
         if (queryUser == null) {
-            return Result.error(401, "登录失败");
+            register(user);
         }
 
         if (!BCrypt.checkpw(password, queryUser.getPassword())) {
@@ -131,10 +131,10 @@ public class UserServiceImpl implements UserService {
         Integer rows = userMapper.update(user, updateWrapper);
 
         if (rows == 0) {
-            return Result.error(501, "修改失败");
+            return Result.error(501, "冻结失败");
         }
 
-        return Result.success("修改成功", null);
+        return Result.success("冻结成功", null);
     }
 
     @Override
@@ -148,9 +148,9 @@ public class UserServiceImpl implements UserService {
         Integer rows = userMapper.update(user, updateWrapper);
 
         if (rows == 0) {
-            return Result.error(501, "修改失败");
+            return Result.error(501, "解冻失败");
         }
 
-        return Result.success("修改成功", null);
+        return Result.success("解冻成功", null);
     }
 }
